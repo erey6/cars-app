@@ -50,6 +50,45 @@ const App = () => {
       console.log(car)
     }
 
+    const handleOnChange = (e) => {
+      switch(e.target.id){
+        case 'image':
+          setEditCar({...car, 'image': e.target.value})
+          break;
+
+        case 'make':
+          setEditCar({...car, 'make': e.target.value})
+          break;
+        
+        case 'model':
+          setEditCar({...car, 'model': e.target.value})
+          break;
+        
+        case 'fuel':
+          setEditCar({...car, 'fuel': e.target.value})
+          break;
+
+        case 'cylinders':
+          setEditCar({...car, 'cylinders': e.target.value})
+          break;
+
+        case 'MSRP':
+          setEditCar({...car, 'MSRP': e.target.value})
+          break;
+        
+        case 'MPG':
+          setEditCar({...car, 'MPG': e.target.value})
+          break;
+        
+        case 'features':
+          setEditCar({...car, 'features': e.target.value})
+          break;
+
+        default:
+          break;
+      }
+    }
+
 
   useEffect(() => {
     axios
@@ -72,7 +111,8 @@ const App = () => {
       <CreateCar setCars={setCars}/>
       <EditCar 
       car = {car}
-      setCars={setCars} />
+      setCars={setCars} 
+      handleOnChange={handleOnChange}/>
     </div>
 
 
