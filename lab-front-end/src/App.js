@@ -63,7 +63,7 @@ const App = () => {
   return (
 
     <div>
-      <h1>My Cars</h1>
+      <h1>My Wheels</h1>
       <Cars 
       cars = {cars}
       deleteCar = {deleteCar}
