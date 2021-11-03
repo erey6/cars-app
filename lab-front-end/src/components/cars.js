@@ -1,39 +1,42 @@
-import { useEffect, useState } from 'react'
+import React from 'react'
 
 
 
 
 const Cars = (props) => {
-    const [filteredCars, setFilteredCars] = useState([{
-        "image": "https://i.imgur.com/An8eclR.jpeg",
-        "make": "Audi",
-        "model": "A6",
-        "fuel": "gas",
-        "cylinders": "4",
-        "MSRP": 21000,
-        "MPG": 18,
-        "features": "stuff"}])
+
 
     const handleDeleteCar = (car) => {
         props.deleteCar(car);
     }
-    useEffect(() => {
-        setFilteredCars([props])
-    }, [])
+
+    const handlePrice = (e) => {
+        props.priceFilter(e.currentTarget.value)
+    }
+
+    const handleEngine = (e) => {
+        props.engineFilter(e.currentTarget.value)
+    }
+
+   
     return (
         <>
             <form>
                 <label>Price </label>
-                <select name="price" class="filter-dropdown">
+                <select onChange= { (e) => {
+                    handlePrice(e)
+                } } name="price" class="filter-dropdown">
                     <option value="">Filter
                     </option>
-                    <option value="above">Above $50,000
+                    <option value="above">$50,000 and above
                     </option>
-                    <option value="below">Below $40,000
+                    <option value="below">Below $50,000
                     </option>
                 </select>
                 <label> Engine type </label>
-                <select name="price" class="filter-dropdown">
+                <select onChange= { (e) => {
+                    handleEngine(e)
+                } }name="price" class="filter-dropdown">
                     <option value="">Filter
                     </option>
                     <option value="gas">Gas
@@ -41,13 +44,12 @@ const Cars = (props) => {
                     <option value="electric">Hybrid/Electric
                     </option>
                 </select>
-                <button>Submit filter</button>
             </form>
 
             <div>
                 <h2>Here are your cars</h2>
 
-                {filteredCars.map((car) => {
+                {props.cars.map((car) => {
                     return (
                         <div className="card" key={car._id}>
                             <img src={car.image} />
