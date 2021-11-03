@@ -6,13 +6,43 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 720px;
+  box-sizing: border-box;
+  background-color: #2e2121;
+  background-image: linear-gradient(315deg, #2e2121 0%, #b82e1f 74%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+.card {
+  padding: 1em;
+  width: 42%;
+  background-color: white;
+  border-radius: 9px;
+  margin: .2em ; 
+}
+
+input {
+  margin: .3em;
+}
 
 .card img {
-width: 150px;
+width: 300px;
 }
+
+.card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+form select {
+  margin-right: 21px;
+}
+
+

@@ -18,15 +18,15 @@ const Cars = (props) => {
         props.engineFilter(e.currentTarget.value)
     }
 
-   
+
     return (
         <>
             <form>
                 <label>Price </label>
-                <select onChange= { (e) => {
+                <select onChange={(e) => {
                     handlePrice(e)
-                } } name="price" class="filter-dropdown">
-                    <option value="">Filter
+                }} name="price" class="filter-dropdown">
+                    <option value="">No filter
                     </option>
                     <option value="above">$50,000 and above
                     </option>
@@ -34,10 +34,10 @@ const Cars = (props) => {
                     </option>
                 </select>
                 <label> Engine type </label>
-                <select onChange= { (e) => {
+                <select onChange={(e) => {
                     handleEngine(e)
-                } }name="price" class="filter-dropdown">
-                    <option value="">Filter
+                }} name="price" class="filter-dropdown">
+                    <option value="">No filter
                     </option>
                     <option value="gas">Gas
                     </option>
@@ -46,9 +46,9 @@ const Cars = (props) => {
                 </select>
             </form>
 
-            <div>
-                <h2>Here are your cars</h2>
 
+            <h2>Here are your cars</h2>
+            <div className="flex-container">
                 {props.cars.map((car) => {
                     return (
                         <div className="card" key={car._id}>
@@ -74,6 +74,7 @@ const Cars = (props) => {
                 })}
 
             </div>
+
         </>
 
     )
